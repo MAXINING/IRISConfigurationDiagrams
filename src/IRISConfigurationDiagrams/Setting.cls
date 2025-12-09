@@ -12,7 +12,7 @@ ClassMethod initialization() As %Status
 	Do $system.OBJ.ImportDir("/opt/IRISConfigurationDiagrams/user/",,"cbrpsuy",,1)
 	}catch e{
 		
-		Do $system.OBJ.ImportDir($SYSTEM.Util.InstallDirectory()_"/mgr/.modules/"_$NAMESPACE_"/irisconfigurationdiagrams/1.0.1/user",,"cbrpsuy",,1)
+		Do $system.OBJ.ImportDir($SYSTEM.Util.InstallDirectory()_"/mgr/.modules/"_$NAMESPACE_"/irisconfigurationdiagrams/1.0.2/user",,"cbrpsuy",,1)
 	}
 	zn "%SYS"
 	D $system.OBJ.Load($SYSTEM.Util.InstallDirectory()_"IRISConfigurationDiagrams.xml","cbrpsuy")
@@ -26,3 +26,4 @@ ClassMethod initialization() As %Status
 }
 
 }
+
