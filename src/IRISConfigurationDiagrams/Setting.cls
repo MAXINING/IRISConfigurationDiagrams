@@ -5,13 +5,11 @@ Parameter HandleCorsRequest = "true";
 
 ClassMethod initialization() As %Status
 {
-
 	set ns=$namespace
 	Do $SYSTEM.OBJ.Export("IRISConfigurationDiagrams.Rest.cls",$SYSTEM.Util.InstallDirectory()_"IRISConfigurationDiagrams.xml")
-	try {
-	Do $system.OBJ.ImportDir("/opt/IRISConfigurationDiagrams/user/",,"cbrpsuy",,1)
-	}catch e{
-		
+	if (##class(%File).Exists("/opt/IRISConfigurationDiagrams/user/csp_user_svg-icons.xml")){
+	    Do $system.OBJ.ImportDir("/opt/IRISConfigurationDiagrams/user/",,"cbrpsuy",,1)
+	}else{
 		Do $system.OBJ.ImportDir($SYSTEM.Util.InstallDirectory()_"/mgr/.modules/"_$NAMESPACE_"/irisconfigurationdiagrams/1.0.2/user",,"cbrpsuy",,1)
 	}
 	zn "%SYS"
@@ -26,4 +24,3 @@ ClassMethod initialization() As %Status
 }
 
 }
-
